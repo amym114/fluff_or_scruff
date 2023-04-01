@@ -1,3 +1,5 @@
+## Description
+
 Introducing Fluff or Scruff, the ultimate app for dog lovers! This fun and interactive app allows users to rank dogs on a scale of 1 to 10 based on their scruffiness versus fluffiness. With 1 being the scruffiest pup you've ever seen and 10 being the fluffiest cloud of fur imaginable, Fluff or Scruff offers endless entertainment for dog enthusiasts everywhere.
 
 Within the app, users can browse through an ever-growing collection of adorable dog photos submitted by fellow users, or upload pictures of their own furry friends. Each photo showcases the unique scruffiness or fluffiness of the featured dog, and users can vote by swiping or tapping the screen to assign a rank.
