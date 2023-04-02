@@ -18,6 +18,9 @@ defmodule FluffOrScruffWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about", PageController, :about
+    live "/leaderboard", FluffOrScruffWeb.LeaderboardLive, :leaderboard
+    live "/vote", FluffOrScruffWeb.VoteLive
   end
 
   # Other scopes may use custom stacks.
