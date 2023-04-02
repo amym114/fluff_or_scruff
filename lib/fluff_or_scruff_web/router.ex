@@ -19,8 +19,8 @@ defmodule FluffOrScruffWeb.Router do
 
     get "/", PageController, :home
     get "/about", PageController, :about
-    live "/leaderboard", FluffOrScruffWeb.LeaderboardLive, :leaderboard
-    live "/vote", FluffOrScruffWeb.VoteLive
+    live "/leaderboard", LeaderboardLive.Index, :index
+    live "/vote", VoteLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
