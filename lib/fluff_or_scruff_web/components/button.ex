@@ -3,7 +3,9 @@ defmodule FluffOrScruffWeb.Button do
   Provides button component.
   """
   use Phoenix.Component
-  import FluffOrScruffWeb.ComponentHelpers
+
+  attr :type, :string, required: true
+  attr :class, :string, default: nil
 
   attr(:color, :string,
     default: "primary",
@@ -11,7 +13,11 @@ defmodule FluffOrScruffWeb.Button do
     values: ["primary", "secondary", "tertiary"]
   )
 
-  attr(:extend_class, :string, doc: "Extend existing classes applied to the component.")
+  attr(:font, :string,
+    default: "display",
+    doc: "The font of the button.",
+    values: ["display", "sans"]
+  )
 
   attr(:size, :string,
     default: "lg",
@@ -34,29 +40,31 @@ defmodule FluffOrScruffWeb.Button do
   slot(:inner_block, required: true)
 
   def fos_button(assigns) do
-    assigns
-    |> assign_class(~w(
-        button tracking-wider font-display outline-none focus:outline-none text-center transition
-        duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer
-        #{classes(:color, assigns)}
-        #{classes(:size, assigns)}
-        #{classes(:variant, assigns)}
-      ))
-    |> render_btn()
-  end
-
-  defp render_btn(assigns) do
     ~H"""
-    <.link class={@class} {@rest}>
+    <button
+      type={@type}
+      class={[
+        "phx-submit-loading:opacity-75 rounded-md",
+        classes(:color, assigns),
+        classes(:font, assigns),
+        classes(:size, assigns),
+        classes(:variant, assigns),
+        @class
+      ]}
+      {@rest}
+    >
       <%= render_slot(@inner_block) %>
-    </.link>
+    </button>
     """
   end
 
+  defp classes(:font, %{font: "display"}), do: "font-display"
+  defp classes(:font, %{font: "sans"}), do: "font-sans"
+
   # Color
+  # What you can't do because of Tailwind JIT
+  # "bg-#{color} border-#{color} text-white hover:bg-white hover:text-#{color} active:bg-#{color}/50"
   defp classes(:color, %{color: color, variant: "contained"}) do
-    # What you can't do because of Tailwind JIT
-    # "bg-#{color} border-#{color} text-white hover:bg-white hover:text-#{color} active:bg-#{color}/50"
     case color do
       "primary" ->
         "bg-primary text-white hover:bg-primary-light active:bg-primary/50"
