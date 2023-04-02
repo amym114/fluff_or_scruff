@@ -87,6 +87,11 @@ defmodule FluffOrScruffWeb do
       import FluffOrScruffWeb.CoreComponents
       import FluffOrScruffWeb.Gettext
 
+      # Additional UI components used throughout app
+      import FluffOrScruffWeb.Button
+      import FluffOrScruffWeb.ImageCard
+      import FluffOrScruffWeb.Typography
+
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 

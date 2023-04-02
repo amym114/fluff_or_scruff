@@ -18,6 +18,8 @@ module.exports = {
           DEFAULT: "#1B998B",
           "dark": "#177C71",
         },
+        "secondary": "#254E70",
+        "tertiary": "#C33C54",
         "light-gray": "#F5F5F5", 
       },
       fontFamily: { 
