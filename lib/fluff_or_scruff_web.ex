@@ -90,7 +90,7 @@ defmodule FluffOrScruffWeb do
       # Additional UI components used throughout app
       import FluffOrScruffWeb.Button
       import FluffOrScruffWeb.ImageCard
-      import FluffOrScruffWeb.Typography
+      import FluffOrScruffWeb.Type
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

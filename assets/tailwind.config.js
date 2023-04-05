@@ -30,7 +30,7 @@ module.exports = {
           DEFAULT: "#C33C54",
           "dark": "#9F2E42",
         },
-        "light-gray": "#F5F5F5", 
+        "light-gray": "#E5E5E5", 
       },
       fontFamily: { 
         display: "gooddog-new, Helvetica, Arial, sans-serif"

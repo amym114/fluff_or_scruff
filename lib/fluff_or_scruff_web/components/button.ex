@@ -19,6 +19,10 @@ defmodule FluffOrScruffWeb.Button do
     values: ["display", "sans"]
   )
 
+  attr(:full_width, :boolean,
+    doc: "If true, the component will take up the full width of its container."
+  )
+
   attr(:size, :string,
     default: "lg",
     doc: "The size of the button.",
@@ -47,6 +51,7 @@ defmodule FluffOrScruffWeb.Button do
         "phx-submit-loading:opacity-75 rounded-md",
         classes(:color, assigns),
         classes(:font, assigns),
+        classes(:full_width, assigns),
         classes(:size, assigns),
         classes(:variant, assigns),
         @class
@@ -102,6 +107,9 @@ defmodule FluffOrScruffWeb.Button do
         "text-tertiary"
     end
   end
+
+  # Full Width
+  defp classes(:full_width, %{full_width: true}), do: "w-full"
 
   # Size
   defp classes(:size, %{size: "sm"}), do: "p-2 text-lg"
