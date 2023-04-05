@@ -202,28 +202,12 @@ defmodule FluffOrScruffWeb.CoreComponents do
       <.button>Send!</.button>
       <.button phx-click="go" class="ml-2">Send!</.button>
   """
-  attr :type, :string, required: true
+  attr :type, :string, required: true, values: ["submit", "monkey"]
   attr :class, :string, default: nil
-  attr :variant, :string, default: nil
   attr :rest, :global, include: ~w(disabled form name value)
+  attr :variant, :string, default: nil
 
   slot :inner_block, required: true
-
-  def button(%{variant: "outline"} = assigns) do
-    ~H"""
-    <button
-      type={@type}
-      class={[
-        "phx-submit-loading:opacity-75 rounded-lg hover:border-zinc-700 py-2 px-3",
-        "text-sm font-semibold leading-6 text-black active:text-black/80",
-        @class
-      ]}
-      {@rest}
-    >
-      <%= render_slot(@inner_block) %>
-    </button>
-    """
-  end
 
   def button(assigns) do
     ~H"""
@@ -236,7 +220,6 @@ defmodule FluffOrScruffWeb.CoreComponents do
       ]}
       {@rest}
     >
-      <%= render_slot(@inner_block) %>
     </button>
     """
   end
