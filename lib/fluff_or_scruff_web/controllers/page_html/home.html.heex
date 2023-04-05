@@ -1,5 +1,4 @@
-<.flash_group flash={@flash} /> 
+<.flash_group flash={@flash} />
 <div class="grid grid-cols-2 gap-8">
-<.image_card :for={pup <- @pups}><img src={"images/#{pup}"} /></.image_card>
-
+  <.image_card :for={pup <- @pups} img={pup} />
 </div>
