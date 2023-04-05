@@ -80,7 +80,7 @@ defmodule FluffOrScruffWeb.Typography do
 
   defp classes(:size, %{variant: "h1"}), do: "text-5xl"
   defp classes(:size, %{variant: "h2"}), do: "text-2xl"
-  defp classes(:size, %{variant: "p"}), do: "text-base sm:text-sm lg:text-lg"
+  defp classes(:size, %{variant: "p"}), do: "text-base lg:text-lg"
 
   # Variant
   defp classes(:variant, %{variant: "h1"}), do: "leading-tight"

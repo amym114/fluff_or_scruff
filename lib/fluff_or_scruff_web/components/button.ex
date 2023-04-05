@@ -67,9 +67,10 @@ defmodule FluffOrScruffWeb.Button do
   defp classes(:font, %{font: "sans"}), do: "font-sans"
 
   # Color
-  # What you can't do because of Tailwind JIT
-  # "bg-#{color} border-#{color} text-white hover:bg-white hover:text-#{color} active:bg-#{color}/50"
   defp classes(:color, %{color: color, variant: "contained"}) do
+    # What you can't do because of Tailwind JIT
+    # "bg-#{color} border-#{color} text-white hover:bg-white hover:text-#{color} active:bg-#{color}/50"
+
     case color do
       "primary" ->
         "bg-primary text-white hover:bg-primary-light active:bg-primary/50"
