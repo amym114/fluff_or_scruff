@@ -1,4 +1,4 @@
-defmodule FluffOrScruffWeb.Type do
+defmodule FluffOrScruffWeb.Typography do
   @moduledoc """
   Provides typography component.
   """
@@ -9,11 +9,8 @@ defmodule FluffOrScruffWeb.Type do
   attr(:element, :string)
   attr(:font, :string, values: ["display", "sans"])
   attr(:margin, :boolean, default: true)
-  attr(:rest, :global)
-
   attr(:size, :string, values: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"])
-
-  attr(:variant, :string, default: "p", values: ["h1", "h2", "p"])
+  attr(:variant, :string, default: "p", values: ["h1", "h2", "p", "span"])
 
   attr(:weight, :string,
     values: [
@@ -23,13 +20,14 @@ defmodule FluffOrScruffWeb.Type do
     ]
   )
 
+  attr(:rest, :global)
+
   slot(:inner_block, required: true)
 
   def t(assigns) do
     ~H"""
     <.dynamic_tag
       class={[
-        "phx-submit-loading:opacity-75 rounded-md",
         classes(:color, assigns),
         classes(:font, assigns),
         classes(:margin, assigns),
