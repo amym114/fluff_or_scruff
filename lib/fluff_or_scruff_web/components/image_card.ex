@@ -4,12 +4,12 @@ defmodule FluffOrScruffWeb.ImageCard do
   """
   use Phoenix.Component
 
-  slot(:inner_block, required: true)
+  attr :img, :string, required: true
 
   def image_card(assigns) do
     ~H"""
     <div class="p-3 bg-white">
-      <%= render_slot(@inner_block) %>
+      <img src={"images/#{@img}"} />
     </div>
     """
   end
